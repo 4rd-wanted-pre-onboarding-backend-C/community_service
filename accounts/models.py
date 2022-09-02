@@ -40,7 +40,7 @@ class User(AbstractUser):
     age = models.IntegerField(verbose_name="나이")
     phone = models.CharField(verbose_name="휴대폰 번호", max_length=15, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    teamgruop_id = models.ForeignKey("TeamGruop", on_delete=models.CASCADE)
+    teamgruop_id = models.ForeignKey("TeamGroup", on_delete=models.CASCADE)
 
     # status
     is_staff = models.BooleanField()
