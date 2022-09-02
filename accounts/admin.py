@@ -4,15 +4,15 @@ from .models import User, TeamGroup, History
 # Register your models here.
 
 @admin.register(User)
-class AdminPostAdmin(admin.ModelAdmin):
+class UserAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(TeamGroup)
-class FreePostAdmin(admin.ModelAdmin):
+class TeamGroupAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(History)
-class NoticePostAdmin(admin.ModelAdmin):
+class HistoryAdmin(admin.ModelAdmin):
     pass
