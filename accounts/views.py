@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from rest_framework import status
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, DestroyAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
@@ -23,3 +24,7 @@ class RegisterAPIView(CreateAPIView):
         serializer.save()
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class DeleteUserView(DestroyAPIView):
+    queryset = get_user_model().objects.all()
