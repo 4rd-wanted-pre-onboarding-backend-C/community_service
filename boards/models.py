@@ -29,7 +29,6 @@ class FreePost(TimeStampedModel, CommonPostModel):
     """
     자유 게시판 게시물 모델, 댓글 기능 추가
     """
-
     def __str__(self):
         return f'<Free Post - {self.title}>'
 

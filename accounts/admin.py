@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, TeamGroup
+from .models import User, TeamGroup, History
 
 # Register your models here.
 
@@ -10,4 +10,9 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(TeamGroup)
 class TeamGroupAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(History)
+class HistoryAdmin(admin.ModelAdmin):
     pass
