@@ -61,6 +61,7 @@ class Comment(TimeStampedModel):
     post = models.ForeignKey('FreePost', on_delete=models.CASCADE)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
+    created_at = models.DateField(auto_now_add=True, null=False, blank=False)
 
     def __str__(self):
         return f'<Comment - {self.content}>'
