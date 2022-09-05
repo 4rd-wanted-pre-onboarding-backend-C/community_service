@@ -9,6 +9,8 @@ class AdminPostSerializer(serializers.ModelSerializer):
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", input_formats=["%Y-%m-%d T%H:%M:%S", "%Y-%m-%d"],
                                            read_only=True)
     author_username = serializers.SlugRelatedField(read_only=True, slug_field='username', source="author")
+    head_image_url = serializers.SerializerMethodField()
+    head_image_file = serializers.ImageField(source='head_image', write_only=True, allow_null=True)
     class Meta:
         model = AdminPost
         fields = ["id",
@@ -35,6 +37,7 @@ class CommentSerializer(serializers.ModelSerializer):
 # 자유 게시판 글 목록 조회
 class FreePostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only= True)
+    author_username = serializers.SlugRelatedField(read_only=True, slug_field='username', source="author")
     # CommentSerializer를 포함하여 댓글 추가
     class Meta:
         model = FreePost
@@ -43,7 +46,9 @@ class FreePostSerializer(serializers.ModelSerializer):
                   "updated_at",
                   "title",
                   "content",
-                  "author_username"]
+                  "author_username",
+                  "comments",
+                  ]
 
 
 
