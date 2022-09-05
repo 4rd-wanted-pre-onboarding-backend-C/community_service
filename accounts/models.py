@@ -35,8 +35,32 @@ class UserManager(BaseUserManager):
         )
 
         user.is_staff = True
+
         user.save(using=self._db)
         return user
+
+
+
+class User(AbstractUser):
+    account_name = models.CharField(verbose_name="ID", max_length=15, unique=True)
+    user_name = models.CharField(verbose_name="이름", max_length=20)
+    gender = models.BooleanField(verbose_name="성별")
+    age = models.IntegerField(verbose_name="나이")
+    phone = models.CharField(verbose_name="휴대폰 번호", max_length=15, unique=True, null=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    teamgroup = models.ForeignKey("TeamGroup", on_delete=models.CASCADE)
+
+    # status
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+
+    USERNAME_FIELD = "account_name"
+    REQUIRED_FIELDS = []
+
+    class Meta:
+        db_table = "users"
 
 
 class TeamGroup(models.Model):
