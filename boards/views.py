@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
 from .serializers import FreePostSerializer,CommentSerializer,NoticePostSerializer, AdminPostSerializer
 from .permissions import CustomReadOnly
-from .models import FreePost, Comment, NoticePost, AdminPostSerializer
+from .models import FreePost, Comment, NoticePost, AdminPostSerializer, AdminPost
 
 
 
@@ -15,7 +15,7 @@ class AdminPostViewSet(ModelViewSet):
     serializer_class = AdminPostSerializer
 
 
-class FreePostViewSet(viewsets.ModelViewSet):
+class FreePostViewSet(ModelViewSet):
 
     queryset = FreePost.objects.all()
     permission_classes = [CustomReadOnly]
@@ -29,7 +29,7 @@ class FreePostViewSet(viewsets.ModelViewSet):
         return super().perform_create(serializer)
 
 
-class CommentViewSet(viewsets.ModelViewSet):
+class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     permission_classes = [CustomReadOnly]
 
