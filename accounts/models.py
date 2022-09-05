@@ -32,22 +32,18 @@ class UserManager(BaseUserManager):
             age = age,
         )
 
-        user.is_superuser = True
         user.is_staff = True
+
         user.save(using=self._db)
         return user
-
-
+        
 class User(AbstractUser):
     username = models.CharField(verbose_name="ID", max_length=20, unique=True)
     name = models.CharField(verbose_name="이름", max_length=15)
     gender = models.BooleanField(verbose_name="성별", default=True)
-    age = models.PositiveIntegerField(verbose_name="나이")
-    phone = models.CharField(verbose_name="휴대폰 번호", max_length=15, unique=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
 
     # status
-    is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
