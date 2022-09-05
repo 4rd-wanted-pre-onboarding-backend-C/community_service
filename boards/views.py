@@ -17,6 +17,9 @@ class FreePostViewSet(viewsets.ModelViewSet):
         if self.action == 'list' or 'retrieve':
             return FreePostSerializer
         return FreePostSerializer
+    def perform_create(self, serializer):
+        serializer.save(author_id=self.request.user.id)
+        return super().perform_create(serializer)
 
 
 class CommentViewSet(viewsets.ModelViewSet):
