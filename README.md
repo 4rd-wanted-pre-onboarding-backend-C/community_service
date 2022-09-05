@@ -3,7 +3,7 @@
 출처 : Wayne_Hills_Ventures
 
 ## :bulb: Stacks
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/django-003B57?style=for-the-badge&logo=django&logoColor=white"> 
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-##003B57?style=for-the-badge&logo=SQLite&logoColor=white"> 
 
 ## :alien: 팀원
 - 이대영
