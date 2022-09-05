@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
 from .serializers import FreePostSerializer,CommentSerializer,NoticePostSerializer, AdminPostSerializer
 from .permissions import CustomReadOnly
-from .models import FreePost, Comment, NoticePost, AdminPostSerializer, AdminPost
+from .models import FreePost, Comment, NoticePost, AdminPost
 
 
 

@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password
 
 from .models import User
 
+
 class SignInSerializer(TokenObtainPairSerializer):
     def validate(self, data):
         username = data.GET["username"]

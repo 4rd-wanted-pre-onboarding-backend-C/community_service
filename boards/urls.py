@@ -11,6 +11,5 @@ router.register("admin-posts", AdminPostViewSet)
 
 urlpatterns = [
     path('board_app_home/', board_app_home),
-    path('adimn/',admin.site.urls),
     path('',include(router.urls)),
 ]
