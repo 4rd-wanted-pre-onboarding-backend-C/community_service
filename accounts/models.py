@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, gender, age, teamgroup_id, password=None):
+    def create_user(self, username, gender, age, password=None):
         if not username:
             raise ValueError("계정 이름을 입력해주세요.")
         if not password:
@@ -18,42 +18,30 @@ class UserManager(BaseUserManager):
             password = password,
             gender = gender,
             age = age,
-            teamgroup_id = TeamGroup.objects.get(id=teamgroup_id).id
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, gender, age, teamgroup_id, password=None):
+    def create_superuser(self, username, gender, age, password=None):
         user = self.create_user(
             username = username,
             password = password,
             gender = gender,
             age = age,
-            teamgroup_id = TeamGroup.objects.get(id=teamgroup_id).id
         )
 
         user.is_staff = True
+
         user.save(using=self._db)
         return user
-
-
-class TeamGroup(models.Model):
-    name = models.CharField(max_length=20, unique=True)
-
-    class Meta:
-        db_table = "teams_groups"
-
-
+        
 class User(AbstractUser):
     username = models.CharField(verbose_name="ID", max_length=20, unique=True)
     name = models.CharField(verbose_name="이름", max_length=15)
     gender = models.BooleanField(verbose_name="성별", default=True)
-    age = models.IntegerField(verbose_name="나이")
-    phone = models.CharField(verbose_name="휴대폰 번호", max_length=15, unique=True)
     date_joined = models.DateTimeField(auto_now_add=True)
-    teamgroup = models.ForeignKey("TeamGroup", on_delete=models.CASCADE)
 
     # status
     is_staff = models.BooleanField(default=False)
