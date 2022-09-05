@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 from .models import User
 
@@ -9,8 +10,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         write_only=True
     )
 
-    token = serializers.CharField(max_length=255, read_only=True)
-
     class Meta:
         model = User
         fields = [
@@ -19,13 +18,10 @@ class RegisterSerializer(serializers.ModelSerializer):
             'gender',
             'age',
             'teamgroup_id',
-            'token',
         ]
 
     def create(self, validated_data):
-        return User.objects.create_user(
-            username=validated_data['username'],
-            gender=validated_data['gender'],
-            age=validated_data['age'],
-            password=validated_data['password']
-        )
+        user = super().create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
