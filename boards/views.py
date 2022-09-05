@@ -1,12 +1,19 @@
 from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
-from .serializers import FreePostSerializer,CommentSerializer,NoticePostSerializer
+from .serializers import FreePostSerializer,CommentSerializer,NoticePostSerializer, AdminPostSerializer
 from .permissions import CustomReadOnly
-from .models import FreePost,Comment,NoticePost
+from .models import FreePost, Comment, NoticePost, AdminPostSerializer
+
 
 
 def board_app_home(request):
     return HttpResponse("Board app")
+
+
+class AdminPostViewSet(ModelViewSet):
+    queryset = AdminPost.objects.all()
+    serializer_class = AdminPostSerializer
+
 
 class FreePostViewSet(viewsets.ModelViewSet):
 
@@ -29,6 +36,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == 'list' or 'retrieve':
             return CommentSerializer
+
 
 class NoticePostViewSet(ModelViewSet):
     queryset = NoticePost.objects.all()
