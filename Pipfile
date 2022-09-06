@@ -11,6 +11,7 @@ pillow = "*"
 django-environ = "*"
 django-debug-toolbar = "*"
 django-rest-authtoken = "*"
+drf-yasg = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
