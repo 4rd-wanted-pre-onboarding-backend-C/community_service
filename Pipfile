@@ -4,11 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "==4.1"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
 django-environ = "*"
+django-debug-toolbar = "*"
+django-rest-authtoken = "*"
+drf-yasg = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
