@@ -3,7 +3,7 @@
 출처 : Wayne_Hills_Ventures
 
 ## :bulb: Stacks
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-##003B57?style=for-the-badge&logo=SQLite&logoColor=white"> 
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">  
 
 ## :alien: 팀원
 - 이대영
@@ -47,7 +47,7 @@
    - 남/여별, 나이별, 접속 시간별
 
 
-## 코드 패키지 구조
+## :ballot_box_with_check: 코드 패키지 구조
 - accounts 앱: 회원가입, 로그인, 회원탈퇴
 - boards 앱: 공지사항, 자유게시판, 운영게시판
 ```
@@ -117,7 +117,7 @@ C:.
 ```
 
 
-## API 정상동작 여부
+## :ballot_box_with_check: API 정상동작 여부
 
 ### 회원가입
 - username(아이디),gender(성별),age(나이),password(비밀번호)를 입력하여 회원가입
@@ -152,7 +152,7 @@ C:.
 
 ![freepost delete](https://user-images.githubusercontent.com/99165573/188483415-c0c463b7-7eb3-487e-9c34-10ee3ed32cfd.jpg)
 
-## sql 쿼리문을 이용한 항목 별 이용 통계
+## :ballot_box_with_check:sql 쿼리문을 이용한 항목 별 이용 통계
 
 ### - Dummydata 약 500개를 이용
 
@@ -181,7 +181,7 @@ C:.
 ![image](https://user-images.githubusercontent.com/99165573/188487224-f362435b-30e1-4705-81c1-bfefea7e4238.png)
 
 
-## branch 컨벤션 
+## :pushpin: branch 컨벤션 
 
 - 브랜치는 삭제하지 않는다
     - 추후에 해당 브랜치를 다시 사용해야 할 일이 있다면 토의 후에 사용
